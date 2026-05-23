@@ -30,19 +30,222 @@
     overflow-x: hidden;
   }
 
-  /* ── NAV ── */
+  /* ══════════════════════════════════════════════
+     RESPONSIVE — MOBILE
+  ══════════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* NAV MOBILE — hamburger */
+    nav {
+      padding: .65rem 1.25rem;
+      flex-wrap: nowrap;
+    }
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(245,242,238,.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      z-index: 200;
+      padding: 2rem;
+    }
+    .nav-links.open {
+      display: flex;
+    }
+    .nav-links a {
+      font-size: .75rem;
+      padding: .5rem 1.5rem;
+      border-radius: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    .nav-links a:active {
+      background: rgba(139,92,246,.1);
+    }
+    .nav-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: .4rem;
+      z-index: 300;
+      position: relative;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: all .25s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    .nav-close-btn {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      font-family: 'DM Mono', monospace;
+      font-size: .55rem;
+      color: var(--dim);
+      letter-spacing: .1em;
+      cursor: pointer;
+      z-index: 210;
+    }
+
+    /* SECTIONS */
+    section { padding: 6rem 1.25rem 4rem; min-height: auto; }
+    section.full { padding-left: 0; padding-right: 0; }
+
+    /* COVER */
+    .cover-title { font-size: 2.2rem; letter-spacing: .15em; }
+    .cover-tagline { font-size: 1rem; padding: 0 1.5rem; }
+
+    /* CHAPTER HEADERS */
+    .chapter-title { font-size: 2.1rem; }
+    .chapter-sub { font-size: .88rem; }
+
+    /* GRIDS → stack */
+    .two-col { grid-template-columns: 1fr !important; }
+    .three-col { grid-template-columns: 1fr !important; }
+
+    /* TABLES → scrollable */
+    table { font-size: .52rem !important; }
+    th, td { padding: .5rem .6rem !important; }
+
+    /* FLOW DIAGRAMS — stack vertically on mobile */
+    .flow-mobile-stack {
+      flex-direction: column !important;
+      gap: .75rem !important;
+    }
+    .flow-mobile-stack > div[style*="padding:0 ."] {
+      display: none !important;
+    }
+
+    /* INDEX grid */
+    #indice > div[style*="grid-template-columns:1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Manifesto */
+    .manifesto-block { padding: 3.5rem 1.25rem; }
+
+    /* Cards */
+    .card { padding: 1.25rem; }
+
+    /* Orb samples */
+    .orb-sample { width: 56px !important; height: 56px !important; }
+
+    /* Color swatches */
+    .color-grid { grid-template-columns: repeat(2,1fr) !important; }
+    .color-block { height: 80px !important; }
+
+    /* Pricing grid */
+    div[style*="grid-template-columns:repeat(3,1fr)"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Testimonios */
+    div[style*="grid-template-columns:repeat(auto-fit,minmax(280px"] {
+      grid-template-columns: 1fr !important;
+    }
+
+    /* Flujo onboarding steps — vertical */
+    div[style*="display:flex;flex-wrap:wrap;gap:0;align-items:center"],
+    div[style*="display:flex;flex-wrap:wrap;gap:0;align-items:stretch"] {
+      flex-direction: column;
+      gap: .5rem;
+    }
+    div[style*="display:flex;flex-wrap:wrap;gap:0"] > div[style*="padding:0 ."] {
+      display: none;
+    }
+    div[style*="display:flex;flex-wrap:wrap;gap:0"] > div[style*="padding:0 .4rem"],
+    div[style*="display:flex;flex-wrap:wrap;gap:0"] > div[style*="padding:0 .35rem"] {
+      display: none;
+    }
+
+    /* Feature items */
+    .feature-item { gap: .75rem; }
+
+  }
+
+  /* Hamburger hidden on desktop */
+  .nav-hamburger { display: none; }
+  @media (max-width: 768px) {
+    .nav-hamburger { display: flex; }
+  }
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(245,242,238,.92);
+    background: rgba(6,5,15,.96);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(139,92,246,.15);
+    border-bottom: 1px solid rgba(139,92,246,.2);
     padding: .7rem 2.5rem;
     display: flex; align-items: center; justify-content: space-between;
   }
-  .nav-logo { font-family: 'DM Mono', monospace; font-weight: 500; letter-spacing: .18em; font-size: .75rem; color: var(--accent); }
-  .nav-links { display: flex; gap: 2rem; }
-  .nav-links a { font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color .2s; }
-  .nav-links a:hover { color: var(--accent); }
+  .nav-logo { font-family: 'DM Mono', monospace; font-weight: 500; letter-spacing: .18em; font-size: .75rem; color: #c4b5fd; }
+  .nav-links { display: none; }
+
+  /* Hamburger — always visible on all sizes */
+  .nav-hamburger {
+    display: flex; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: .4rem; z-index: 300; position: relative;
+  }
+  .nav-hamburger span {
+    display: block; width: 22px; height: 2px;
+    background: var(--accent); border-radius: 2px; transition: all .25s;
+  }
+  .nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+  .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+  .nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+  /* OVERLAY */
+  .nav-overlay {
+    position: fixed; inset: 0;
+    background: rgba(6,5,15,.3);
+    backdrop-filter: blur(3px);
+    z-index: 199; opacity: 0; pointer-events: none;
+    transition: opacity .3s;
+  }
+  .nav-overlay.open { opacity: 1; pointer-events: all; }
+
+  /* SIDE PANEL — slides from right on desktop */
+  .nav-panel {
+    position: fixed; top: 0; right: -340px;
+    width: 300px; height: 100vh;
+    background: rgba(245,242,238,.98);
+    backdrop-filter: blur(24px);
+    border-left: 1px solid rgba(139,92,246,.15);
+    box-shadow: -12px 0 48px rgba(139,92,246,.1);
+    z-index: 200;
+    display: flex; flex-direction: column;
+    padding: 4.5rem 1.5rem 2rem;
+    gap: .15rem;
+    transition: right .3s cubic-bezier(.4,0,.2,1);
+    overflow-y: auto;
+  }
+  .nav-panel.open { right: 0; }
+  .nav-panel-group {
+    font-family: 'DM Mono', monospace; font-size: .42rem;
+    letter-spacing: .14em; color: var(--accent);
+    margin: 1.1rem 0 .4rem;
+    padding-bottom: .35rem;
+    border-bottom: 1px solid rgba(139,92,246,.15);
+  }
+  .nav-panel a {
+    font-family: 'DM Mono', monospace; font-size: .56rem;
+    letter-spacing: .09em; text-transform: uppercase;
+    color: var(--dim); text-decoration: none;
+    padding: .45rem .75rem; border-radius: 7px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background .15s, color .15s;
+  }
+  .nav-panel a:hover { background: rgba(139,92,246,.07); color: var(--accent); }
+  .nav-panel a .num { font-size: .44rem; color: rgba(139,92,246,.3); }
 
   /* ── SECTIONS ── */
   section { min-height: 100vh; padding: 8rem 2.5rem 5rem; max-width: 1100px; margin: 0 auto; }
@@ -233,27 +436,44 @@
 <!-- NAV -->
 <nav>
   <a href="#indice" style="text-decoration:none"><div class="nav-logo" style="cursor:pointer">✦ ALINEA · BRAND BOOK</div></a>
-  <div class="nav-links">
-    <a href="#manifesto">Manifiesto</a>
-    <a href="#identidad">Identidad</a>
-    <a href="#marca">Marca</a>
-    <a href="#tipografia">Tipografía</a>
-    <a href="#color">Color</a>
-    <a href="#voz">Voz</a>
-    <a href="#motion">Motion</a>
-    <a href="#imagery">Imagery</a>
-    <a href="#firma">Firma</a>
-    <a href="#producto">Producto</a>
-    <a href="#principios">Principios</a>
-    <a href="#ia">IA</a>
-    <a href="#notalinea">No ALINEA</a>
-    <a href="#beta">Beta</a>
-    <a href="#copyemocional">Copy</a>
-    <a href="#community">Community</a>
-    <a href="#flujo">Flujo</a>
-    <a href="#laboratorio">Lab</a>
+  <div class="nav-hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
   </div>
 </nav>
+
+<!-- OVERLAY -->
+<div class="nav-overlay" id="navOverlay" onclick="toggleNav()"></div>
+
+<!-- SIDE PANEL -->
+<div class="nav-panel" id="navPanel">
+  <div class="nav-panel-group">IDENTIDAD DE MARCA</div>
+  <a href="#manifesto" onclick="toggleNav()"><span>Manifiesto</span><span class="num">01</span></a>
+  <a href="#identidad" onclick="toggleNav()"><span>Identidad</span><span class="num">02</span></a>
+  <a href="#marca" onclick="toggleNav()"><span>Marca Visual</span><span class="num">03</span></a>
+  <a href="#tipografia" onclick="toggleNav()"><span>Tipografía</span><span class="num">04</span></a>
+  <a href="#color" onclick="toggleNav()"><span>Color</span><span class="num">05</span></a>
+  <a href="#voz" onclick="toggleNav()"><span>Voz & Tono</span><span class="num">06</span></a>
+  <a href="#motion" onclick="toggleNav()"><span>Motion & Atmosphere</span><span class="num">07</span></a>
+  <a href="#imagery" onclick="toggleNav()"><span>Fotografía & Imagery</span><span class="num">08</span></a>
+  <a href="#firma" onclick="toggleNav()"><span>Firma de Marca</span><span class="num">09</span></a>
+
+  <div class="nav-panel-group">PRODUCTO</div>
+  <a href="#producto" onclick="toggleNav()"><span>Feature Map</span><span class="num">10</span></a>
+  <a href="#principios" onclick="toggleNav()"><span>Principios</span><span class="num">11</span></a>
+  <a href="#ia" onclick="toggleNav()"><span>Dirección de IA</span><span class="num">12</span></a>
+  <a href="#notalinea" onclick="toggleNav()"><span>What ALINEA Is Not</span><span class="num">13</span></a>
+
+  <div class="nav-panel-group">GO-TO-MARKET</div>
+  <a href="#beta" onclick="toggleNav()"><span>Beta & Pricing</span><span class="num">14</span></a>
+  <a href="#copyemocional" onclick="toggleNav()"><span>Copy Landing</span><span class="num">15</span></a>
+  <a href="#community" onclick="toggleNav()"><span>Community & Culture</span><span class="num">16</span></a>
+
+  <div class="nav-panel-group">FUTURO</div>
+  <a href="#flujo" onclick="toggleNav()"><span>Flujo de Proceso</span><span class="num">17</span></a>
+  <a href="#laboratorio" onclick="toggleNav()"><span>Laboratorio</span><span class="num">18</span></a>
+  <a href="#onboarding" onclick="toggleNav()"><span>Onboarding</span><span class="num">19</span></a>
+  <a href="#indice" onclick="toggleNav()"><span>✦ Índice</span><span class="num">—</span></a>
+</div>
 
 <!-- COVER -->
 <section class="cover full" id="cover">
@@ -359,6 +579,10 @@
         <a href="#flujo" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:.55rem .9rem;border-radius:8px" onmouseover="this.style.background='rgba(167,139,250,.06)'" onmouseout="this.style.background='transparent'">
           <span style="font-family:'Playfair Display',serif;font-size:.88rem;color:var(--ink)">Flujo de Proceso</span>
           <span style="font-family:'DM Mono',monospace;font-size:.5rem;color:#a78bfa">17</span>
+        </a>
+        <a href="#onboarding" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:.55rem .9rem;border-radius:8px" onmouseover="this.style.background='rgba(167,139,250,.06)'" onmouseout="this.style.background='transparent'">
+          <span style="font-family:'Playfair Display',serif;font-size:.88rem;color:var(--ink)">Onboarding</span>
+          <span style="font-family:'DM Mono',monospace;font-size:.5rem;color:#a78bfa">19</span>
         </a>
         <a href="#laboratorio" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;padding:.55rem .9rem;border-radius:8px" onmouseover="this.style.background='rgba(167,139,250,.06)'" onmouseout="this.style.background='transparent'">
           <span style="font-family:'Playfair Display',serif;font-size:.88rem;color:var(--ink)">Laboratorio</span>
@@ -470,9 +694,47 @@
         <span class="pill pill-gold">✦ Lector serio y curioso</span>
       </div>
       <div class="chapter-num" style="font-size:.5rem;margin-bottom:.75rem">AUDIENCIA</div>
-      <div class="card" style="margin-bottom:0">
+      <div class="card" style="margin-bottom:1.5rem">
         <div class="card-label">Lector + Estudiante</div>
         <div class="card-body">ALINEA no es solo para el lector apasionado. Es también para el estudiante que necesita organizar, conectar y visualizar el conocimiento que construye libro a libro, apunte a apunte. Emiliano lo descubrió sin que nadie se lo dijera: <em>"también para llevar control de libros de la universidad... así está de lujo."</em> El estudiante serio es un lector en formación — y ALINEA es su galaxia desde el primer día.</div>
+      </div>
+
+      <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.25rem">ORGANIGRAMA DEL COSMOS — LOS TRES ROLES</div>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+
+        <div class="card" style="border-color:rgba(167,139,250,.35)">
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(167,139,250,.12);border:2px solid rgba(167,139,250,.4);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">🛰️</div>
+            <div>
+              <div style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:#a78bfa">ROL 01</div>
+              <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink)">El Operador de la Estación <span style="font-size:.75rem;color:rgba(196,181,253,.5)">· The Station Operator</span></div>
+            </div>
+          </div>
+          <div class="card-body">La figura discreta que mantiene la infraestructura viva — el arquitecto que vigila que el código sea inmortal y que el soporte funcione. Provee la tecnología pero permanece en el trasfondo, operando la base desde donde todo despega. <em>Miguel S. Valdez V.</em></div>
+        </div>
+
+        <div class="card" style="border-color:rgba(16,185,129,.35)">
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(16,185,129,.1);border:2px solid rgba(16,185,130,.4);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">🌌</div>
+            <div>
+              <div style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:#10b981">ROL 02 — PRO</div>
+              <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink)">Exploradores de Galaxias <span style="font-size:.75rem;color:rgba(110,231,183,.4)">· The Galaxy Explorers</span></div>
+            </div>
+          </div>
+          <div class="card-body">Mentes activas en misión de descubrimiento. Su misión no es solo guardar notas — es <strong>cartografiar su intelecto</strong>. Registran libros físicos y digitales, descubren nuevos planetas de conocimiento y crean constelaciones de ideas que antes eran invisibles. Se comunican con el cosmos transmitiendo señales: compartiendo sus galaxias interconectadas en redes sociales.</div>
+        </div>
+
+        <div class="card" style="border-color:rgba(139,92,246,.35)">
+          <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:.75rem">
+            <div style="width:36px;height:36px;border-radius:50%;background:rgba(139,92,246,.1);border:2px solid rgba(139,92,246,.4);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0">🔭</div>
+            <div>
+              <div style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:var(--accent)">ROL 03 — BETA</div>
+              <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink)">Tripulantes de Observación <span style="font-size:.75rem;color:rgba(196,181,253,.4)">· The Observation Crew</span></div>
+            </div>
+          </div>
+          <div class="card-body">No son usuarios de prueba — son mentes analíticas que entran a la estación a medir la potencia del sistema. Registran sus primeros 3 libros en una misión de reconocimiento: comprobar cómo sus notas e ideas interactúan por primera vez. Su cabina está blindada en local. Cuando están listos, ascienden al rango de Explorador de Galaxias.</div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -1614,6 +1876,17 @@
 
   <div class="highlight" style="margin-bottom:3rem"><p>"<strong>Created by a reader, for readers.</strong>"</p></div>
 
+  <!-- SEÑALES EN EL VACÍO -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.25rem">🛰️ SEÑALES EN EL VACÍO — LA RED DE EXPLORADORES</div>
+  <div style="background:linear-gradient(135deg,rgba(6,5,15,.9),rgba(12,10,24,.95));border:1px solid rgba(139,92,246,.2);border-radius:16px;padding:2.5rem;margin-bottom:3rem;position:relative;overflow:hidden">
+    <div style="position:absolute;top:1rem;right:1.5rem;font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:rgba(139,92,246,.3)">LOCAL-FIRST · PRIVACIDAD ABSOLUTA</div>
+    <p style="font-family:'Lato',sans-serif;font-size:.92rem;line-height:1.85;color:rgba(240,238,255,.75);margin-bottom:1.25rem">ALINEA nace bajo la filosofía <em>local-first</em>: tu nave, tus datos, tu privacidad absoluta. Tu galaxia vive en tu dispositivo y nadie más puede espiarla. En ese sentido, la exploración de tu conocimiento es un viaje independiente.</p>
+    <p style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#f0eeff;font-weight:600;margin-bottom:1.25rem">Pero no estás solo en el cosmos.</p>
+    <p style="font-family:'Lato',sans-serif;font-size:.92rem;line-height:1.85;color:rgba(240,238,255,.75);margin-bottom:1.25rem">Quienes activan el Token Pro se convierten en <strong style="color:#c4b5fd">Exploradores de Galaxias</strong>. Tu misión es adentrarte en el océano de tus libros, descubrir nuevos planetas de conocimiento y hacer visible lo invisible.</p>
+    <p style="font-family:'Lato',sans-serif;font-size:.92rem;line-height:1.85;color:rgba(240,238,255,.75);margin-bottom:1.25rem">¿Cómo nos encontramos en la inmensidad del espacio digital? A través de nuestras transmisiones. Al compartir los mapas de tus lecturas en redes sociales, estás lanzando una señal de radio al vacío — mostrando tus rutas de navegación intelectual para que otros Exploradores puedan cruzarse en tu órbita, conectando mentes que vibran en la misma frecuencia a lo largo de todo el planeta.</p>
+    <p style="font-family:'DM Mono',monospace;font-size:.72rem;color:rgba(196,181,253,.6);letter-spacing:.06em;font-style:italic">La Estación proporciona la tecnología; tú expandes el universo.</p>
+  </div>
+
   <!-- TESTIMONIOS -->
   <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.75rem">PRIMERAS VOCES — EARLY EXPLORERS</div>
   <p style="color:var(--dim);font-size:.88rem;line-height:1.7;margin-bottom:2.5rem">Las primeras personas que exploraron ALINEA antes de cualquier lanzamiento público. Sus palabras no fueron pedidas — surgieron solas.</p>
@@ -1712,7 +1985,7 @@
   <div style="margin-bottom:3.5rem">
     <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem">
       <div style="width:32px;height:32px;border-radius:50%;background:rgba(139,92,246,.15);border:2px solid rgba(139,92,246,.4);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.6rem;color:var(--accent);font-weight:700">A</div>
-      <div style="font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;color:var(--accent)">FLUJO BETA — EL USUARIO GRATUITO</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;color:var(--accent)">FLUJO A — TRIPULANTE DE OBSERVACIÓN (BETA)</div>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:0;align-items:stretch">
@@ -1763,9 +2036,13 @@
       <div style="display:flex;flex-direction:column;align-items:center;gap:0;min-width:120px;flex:1">
         <div style="background:rgba(139,92,246,.1);border:1.5px solid rgba(139,92,246,.35);border-radius:12px;padding:1rem .75rem;text-align:center;width:100%;box-sizing:border-box">
           <div style="font-size:1.3rem;margin-bottom:.4rem">📚</div>
-          <div style="font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.08em;color:var(--accent);margin-bottom:.3rem">USO BETA</div>
-          <div style="font-family:'Lato',sans-serif;font-size:.72rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Agrega 1–3 libros</div>
-          <div style="font-family:'Lato',sans-serif;font-size:.62rem;color:var(--dim);line-height:1.4">Notas · Galaxia · Stories · Explorador preview</div>
+          <div style="font-family:'DM Mono',monospace;font-size:.44rem;letter-spacing:.08em;color:var(--accent);margin-bottom:.3rem">USO BETA — ACTIVO</div>
+          <div style="font-family:'Lato',sans-serif;font-size:.72rem;color:var(--ink);font-weight:600;margin-bottom:.35rem">Tripulante de Observación</div>
+          <div style="font-family:'Lato',sans-serif;font-size:.62rem;color:var(--dim);line-height:1.5;margin-bottom:.5rem">Notas · Galaxia · Stories · Explorador preview</div>
+          <div style="display:flex;flex-direction:column;gap:.3rem">
+            <div style="font-family:'DM Mono',monospace;font-size:.48rem;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);border-radius:6px;padding:.25rem .5rem;color:#10b981">📥 JSON descargable en cualquier momento</div>
+            <div style="font-family:'DM Mono',monospace;font-size:.48rem;background:rgba(139,92,246,.1);border:1px solid rgba(139,92,246,.25);border-radius:6px;padding:.25rem .5rem;color:var(--accent)">🌐 Link a landing siempre visible</div>
+          </div>
         </div>
         <div style="width:2px;height:20px;background:rgba(139,92,246,.3)"></div>
         <div style="width:8px;height:8px;border-radius:50%;background:rgba(139,92,246,.5)"></div>
@@ -1814,7 +2091,7 @@
   <div style="margin-bottom:3.5rem">
     <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem">
       <div style="width:32px;height:32px;border-radius:50%;background:rgba(251,191,36,.12);border:2px solid rgba(251,191,36,.45);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.6rem;color:#d97706;font-weight:700">B</div>
-      <div style="font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;color:#d97706">FLUJO DE COMPRA — DE LA LANDING AL TOKEN</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;color:#d97706">FLUJO B — COMPRA · DE LA LANDING AL TOKEN</div>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:0;align-items:stretch">
@@ -1887,7 +2164,7 @@
   <div style="margin-bottom:3.5rem">
     <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem">
       <div style="width:32px;height:32px;border-radius:50%;background:rgba(16,185,129,.12);border:2px solid rgba(16,185,129,.45);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.6rem;color:#10b981;font-weight:700">C</div>
-      <div style="font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;color:#10b981">FLUJO DE TRANSICIÓN — BETA JSON → PRO SIN PERDER NADA</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;color:#10b981">FLUJO C — TRANSICIÓN · BETA JSON → EXPLORADOR SIN PERDER NADA</div>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:0;align-items:center">
@@ -1940,7 +2217,12 @@
   <div style="margin-bottom:3.5rem">
     <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.75rem">
       <div style="width:32px;height:32px;border-radius:50%;background:rgba(236,72,153,.1);border:2px solid rgba(236,72,153,.4);display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:.6rem;color:#ec4899;font-weight:700">D</div>
-      <div style="font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;color:#ec4899">FLUJO DE SOPORTE — TOKEN PERDIDO · CERO INTERVENCIÓN MANUAL</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.52rem;letter-spacing:.14em;color:#ec4899">FLUJO D — SOPORTE TOKEN PERDIDO · VÍA LANDING</div>
+    </div>
+
+    <div style="background:rgba(236,72,153,.04);border:1px solid rgba(236,72,153,.18);border-radius:14px;padding:1.25rem 1.5rem;margin-bottom:1.5rem">
+      <p style="font-family:'DM Mono',monospace;font-size:.52rem;color:#ec4899;letter-spacing:.08em;margin-bottom:.5rem">DECISIÓN DE DISEÑO</p>
+      <p style="font-family:'Lato',sans-serif;font-size:.82rem;color:var(--dim);line-height:1.75">El soporte de Token perdido <strong style="color:var(--ink)">no vive dentro de la app</strong> — vive en la landing page y en redes sociales. Esto mantiene la app limpia y contemplativa, y concentra el soporte donde el Explorador ya sabe buscar ayuda.</p>
     </div>
 
     <div style="display:flex;flex-wrap:wrap;gap:0;align-items:center">
@@ -1954,34 +2236,34 @@
       <div style="padding:0 .4rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(236,72,153,.4)">→</div></div>
 
       <div style="min-width:120px;flex:1;background:rgba(236,72,153,.06);border:1.5px solid rgba(236,72,153,.25);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
-        <div style="font-size:1.2rem;margin-bottom:.35rem">⚙️</div>
-        <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#ec4899;margin-bottom:.25rem">SOLUCIÓN</div>
-        <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Link en Configuración</div>
-        <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">"¿Perdiste tu Token?" → tap</div>
+        <div style="font-size:1.2rem;margin-bottom:.35rem">🌐</div>
+        <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#ec4899;margin-bottom:.25rem">PUNTO DE CONTACTO</div>
+        <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Va a la landing</div>
+        <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">alinea.io · Sección soporte · o redes sociales del creador</div>
+      </div>
+      <div style="padding:0 .4rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(236,72,153,.4)">→</div></div>
+
+      <div style="min-width:120px;flex:1;background:rgba(236,72,153,.06);border:1.5px solid rgba(236,72,153,.25);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+        <div style="font-size:1.2rem;margin-bottom:.35rem">📩</div>
+        <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#ec4899;margin-bottom:.25rem">CANAL</div>
+        <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Correo o DM</div>
+        <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Email en landing · DM en Instagram / X · Soporte exclusivo Pro</div>
       </div>
       <div style="padding:0 .4rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(236,72,153,.4)">→</div></div>
 
       <div style="min-width:120px;flex:1;background:rgba(236,72,153,.06);border:1.5px solid rgba(236,72,153,.25);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
         <div style="font-size:1.2rem;margin-bottom:.35rem">🍋</div>
-        <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#ec4899;margin-bottom:.25rem">LEMON SQUEEZY</div>
-        <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Portal nativo</div>
-        <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Ingresa su email de compra · Lemon reenvía el Token</div>
-      </div>
-      <div style="padding:0 .4rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(236,72,153,.4)">→</div></div>
-
-      <div style="min-width:120px;flex:1;background:rgba(236,72,153,.06);border:1.5px solid rgba(236,72,153,.25);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
-        <div style="font-size:1.2rem;margin-bottom:.35rem">📧</div>
-        <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#ec4899;margin-bottom:.25rem">EMAIL</div>
-        <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Token recuperado</div>
-        <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Lemon envía key · Sin esperar al creador</div>
+        <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#ec4899;margin-bottom:.25rem">RECUPERACIÓN</div>
+        <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Lemon Squeezy</div>
+        <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">El Operador indica el portal nativo · El Explorador ingresa su email y recupera su key</div>
       </div>
       <div style="padding:0 .4rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(236,72,153,.4)">→</div></div>
 
       <div style="min-width:120px;flex:1;background:rgba(16,185,129,.08);border:2px solid rgba(16,185,129,.4);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
         <div style="font-size:1.2rem;margin-bottom:.35rem">✦</div>
         <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#10b981;margin-bottom:.25rem">RESUELTO</div>
-        <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Pro reactivado</div>
-        <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Sin ticket · Sin espera · Sin intervención del creador</div>
+        <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Explorador reactivado</div>
+        <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Token recuperado · Pega en app · Galaxia desbloqueada de nuevo</div>
       </div>
 
     </div>
@@ -2039,6 +2321,144 @@
 
   <div class="highlight">
     <p><strong>Regla de oro de todos los modales:</strong> El mensaje siempre menciona exactamente la función que el usuario intentó usar. Nunca un mensaje genérico. La fricción se convierte en el mejor argumento de venta.</p>
+  </div>
+
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 19 ONBOARDING -->
+<section id="onboarding">
+  <div class="chapter-num">✦ 19 — ONBOARDING</div>
+  <h2 class="chapter-title">La primera experiencia del <em>cosmos</em></h2>
+  <p class="chapter-sub">Dos pantallas de activación — una para el Tripulante de Observación que comienza su misión, otra para el Explorador de Galaxias que desbloquea el universo infinito.</p>
+
+  <!-- DIAGRAMA ONBOARDING BETA -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.5rem">FLUJO E — ONBOARDING BETA · TRIPULANTE DE OBSERVACIÓN</div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:0;align-items:center;margin-bottom:1.5rem">
+
+    <div style="min-width:120px;flex:1;background:rgba(139,92,246,.08);border:1.5px solid rgba(139,92,246,.3);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">📥</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:var(--accent);margin-bottom:.25rem">PASO 1</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Descarga Beta</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Desde alinea.io · Sin registro · Sin cuenta</div>
+    </div>
+    <div style="padding:0 .35rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(139,92,246,.4)">→</div></div>
+
+    <div style="min-width:120px;flex:1;background:rgba(139,92,246,.08);border:1.5px solid rgba(139,92,246,.3);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">🌑</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:var(--accent);margin-bottom:.25rem">PASO 2</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Pantalla Beta</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Fondo negro · "Sistemas Inicializados" · Continuar con Beta</div>
+    </div>
+    <div style="padding:0 .35rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(139,92,246,.4)">→</div></div>
+
+    <div style="min-width:120px;flex:1;background:rgba(139,92,246,.08);border:1.5px solid rgba(139,92,246,.3);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">🔭</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:var(--accent);margin-bottom:.25rem">PASO 3</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Bienvenida Tripulante</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">"Bienvenido a bordo, Tripulante de Observación" · Explica los 3 libros · Link a Pro</div>
+    </div>
+    <div style="padding:0 .35rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(139,92,246,.4)">→</div></div>
+
+    <div style="min-width:120px;flex:1;background:rgba(139,92,246,.08);border:1.5px solid rgba(139,92,246,.3);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">✏️</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:var(--accent);margin-bottom:.25rem">PASO 4</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Nombra tu biblioteca</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Campo de texto · Su galaxia recibe un nombre</div>
+    </div>
+    <div style="padding:0 .35rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(139,92,246,.4)">→</div></div>
+
+    <div style="min-width:120px;flex:1;background:rgba(139,92,246,.08);border:1.5px solid rgba(139,92,246,.3);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">🎨</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:var(--accent);margin-bottom:.25rem">PASO 5</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Elige color</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">3 temas disponibles: Morado · Azul · Verde</div>
+    </div>
+    <div style="padding:0 .35rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(139,92,246,.4)">→</div></div>
+
+    <div style="min-width:120px;flex:1;background:rgba(139,92,246,.12);border:2px solid rgba(139,92,246,.5);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">🌌</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:var(--accent);margin-bottom:.25rem">LISTO ✦</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Configura tu Biblioteca →</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Canvas cósmico activo · Botón JSON siempre visible · Link a Pro siempre visible</div>
+    </div>
+
+  </div>
+
+  <!-- TEXTO BETA ONBOARDING -->
+  <div style="background:rgba(0,0,0,.35);border:1px solid rgba(139,92,246,.2);border-radius:14px;padding:2rem;margin-bottom:3rem">
+    <div style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:var(--accent);margin-bottom:1rem">TEXTO NARRATIVO — PANTALLA BETA</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#f0eeff;margin-bottom:1rem;font-weight:600">Sistemas Inicializados en Modo Local.</div>
+    <p style="font-family:'Lato',sans-serif;font-size:.88rem;line-height:1.85;color:rgba(240,238,255,.7);margin-bottom:.75rem">Bienvenido a bordo, <strong style="color:#f0eeff">Tripulante de Observación</strong>.</p>
+    <p style="font-family:'Lato',sans-serif;font-size:.88rem;line-height:1.85;color:rgba(240,238,255,.7);margin-bottom:.75rem">Has ingresado a la versión Beta de <strong style="color:#f0eeff">ALINEA</strong>. Tu estación de trabajo está lista para trazar las primeras coordenadas de tu intelecto.</p>
+    <p style="font-family:'Lato',sans-serif;font-size:.88rem;line-height:1.85;color:rgba(240,238,255,.7);margin-bottom:.75rem">Durante esta fase de observación, tu cabina cuenta con un espacio optimizado para <strong style="color:#f0eeff">3 libros</strong>. Es el entorno perfecto para que comiences a registrar tus notas, uses el Canvas Cósmico de forma 100% privada y veas nacer las primeras interconexiones de tu conocimiento.</p>
+    <p style="font-family:'Lato',sans-serif;font-size:.88rem;line-height:1.85;color:rgba(240,238,255,.7);margin-bottom:1.25rem">Recuerda que el cosmos no tiene límites. En el momento en que decidas ascender al rango de <strong style="color:#c4b5fd">Explorador de Galaxias</strong> y expandir tu universo al infinito, podrás desbloquear <strong style="color:#f0eeff">ALINEA Pro</strong> desde nuestra landing page oficial.</p>
+    <div style="display:inline-block;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.35);border-radius:8px;padding:.6rem 1.5rem;font-family:'DM Mono',monospace;font-size:.58rem;color:#c4b5fd;letter-spacing:.08em">Configurar mi Biblioteca →</div>
+  </div>
+
+  <!-- DIAGRAMA ONBOARDING PRO -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.5rem">FLUJO F — ONBOARDING PRO · EXPLORADOR DE GALAXIAS</div>
+
+  <div style="display:flex;flex-wrap:wrap;gap:0;align-items:center;margin-bottom:1.5rem">
+
+    <div style="min-width:115px;flex:1;background:rgba(251,191,36,.06);border:1.5px solid rgba(251,191,36,.3);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">🔑</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#d97706;margin-bottom:.25rem">PASO 1</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Ingresa Token</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Campo "pegar aquí" · Validación Lemon Squeezy · Instantáneo</div>
+    </div>
+    <div style="padding:0 .35rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(251,191,36,.5)">→</div></div>
+
+    <div style="min-width:115px;flex:1;background:rgba(251,191,36,.06);border:1.5px solid rgba(251,191,36,.3);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">💥</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#d97706;margin-bottom:.25rem">PASO 2</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Expansión estelar</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Pantalla negra · Efecto visual de universo expandiéndose</div>
+    </div>
+    <div style="padding:0 .35rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(251,191,36,.5)">→</div></div>
+
+    <div style="min-width:115px;flex:1;background:rgba(251,191,36,.06);border:1.5px solid rgba(251,191,36,.3);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">🌌</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#d97706;margin-bottom:.25rem">PASO 3</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Bienvenida Explorador</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">"¡Sistemas Desbloqueados! Constelación Infinita Activa" · Texto narrativo completo</div>
+    </div>
+    <div style="padding:0 .35rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(251,191,36,.5)">→</div></div>
+
+    <div style="min-width:115px;flex:1;background:rgba(251,191,36,.06);border:1.5px solid rgba(251,191,36,.3);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">✏️</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#d97706;margin-bottom:.25rem">PASO 4</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Nombra tu biblioteca</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">Tu galaxia recibe su nombre definitivo</div>
+    </div>
+    <div style="padding:0 .35rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(251,191,36,.5)">→</div></div>
+
+    <div style="min-width:115px;flex:1;background:rgba(251,191,36,.06);border:1.5px solid rgba(251,191,36,.3);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">🎨</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#d97706;margin-bottom:.25rem">PASO 5</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Elige color</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">7 temas + color custom completo desbloqueado</div>
+    </div>
+    <div style="padding:0 .35rem"><div style="font-family:'DM Mono',monospace;font-size:.8rem;color:rgba(251,191,36,.5)">→</div></div>
+
+    <div style="min-width:115px;flex:1;background:rgba(16,185,129,.1);border:2px solid rgba(16,185,129,.5);border-radius:12px;padding:1rem .75rem;text-align:center;box-sizing:border-box">
+      <div style="font-size:1.2rem;margin-bottom:.35rem">✦</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.42rem;color:#10b981;margin-bottom:.25rem">EXPLORADOR ACTIVO</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.7rem;color:var(--ink);font-weight:600;margin-bottom:.2rem">Configura mi Biblioteca →</div>
+      <div style="font-family:'Lato',sans-serif;font-size:.6rem;color:var(--dim)">∞ libros · Todos los features · Galaxia desbloqueada</div>
+    </div>
+
+  </div>
+
+  <!-- TEXTO PRO ONBOARDING -->
+  <div style="background:rgba(0,0,0,.35);border:1px solid rgba(16,185,129,.2);border-radius:14px;padding:2rem">
+    <div style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:#10b981;margin-bottom:1rem">TEXTO NARRATIVO — PANTALLA PRO (POST-TOKEN)</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#f0eeff;margin-bottom:1rem;font-weight:600">¡Sistemas Desbloqueados! Constelación Infinita Activa.</div>
+    <p style="font-family:'Lato',sans-serif;font-size:.88rem;line-height:1.85;color:rgba(240,238,255,.7);margin-bottom:.75rem">Bienvenido a bordo, <strong style="color:#6ee7b7">Explorador de Galaxias</strong>.</p>
+    <p style="font-family:'Lato',sans-serif;font-size:.88rem;line-height:1.85;color:rgba(240,238,255,.7);margin-bottom:1.25rem">Tu misión a partir de hoy no es solo guardar notas — es cartografiar tu propio intelecto. Al registrar tus libros físicos y digitales, comenzarás a descubrir nuevos planetas de conocimiento y a crear conexiones que antes eran invisibles.</p>
+    <div style="display:inline-block;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.35);border-radius:8px;padding:.6rem 1.5rem;font-family:'DM Mono',monospace;font-size:.58rem;color:#6ee7b7;letter-spacing:.08em">Configurar mi Biblioteca →</div>
   </div>
 
 </section>
@@ -2236,6 +2656,18 @@ for(let i = 0; i < 200; i++){
     animation-duration:${Math.random()*3+2}s;
   `;
   starsEl.appendChild(s);
+}
+</script>
+<script>
+function toggleNav() {
+  const panel = document.getElementById('navPanel');
+  const overlay = document.getElementById('navOverlay');
+  const ham = document.getElementById('hamburger');
+  const isOpen = panel.classList.contains('open');
+  panel.classList.toggle('open');
+  overlay.classList.toggle('open');
+  ham.classList.toggle('open');
+  document.body.style.overflow = isOpen ? '' : 'hidden';
 }
 </script>
 </body>
