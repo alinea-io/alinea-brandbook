@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALINEA — Brand Book</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0818;
+    --paper: #f5f2ee;
+    --accent: #8b5cf6;
+    --accent2: #c4b5fd;
+    --gold: #fbbf24;
+    --green: #6ee7b7;
+    --red-accent: #f87171;
+    --dim: #6b7280;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(245,242,238,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(139,92,246,.15);
+    padding: .7rem 2.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo { font-family: 'DM Mono', monospace; font-weight: 500; letter-spacing: .18em; font-size: .75rem; color: var(--accent); }
+  .nav-links { display: flex; gap: 2rem; }
+  .nav-links a { font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .12em; text-transform: uppercase; color: var(--dim); text-decoration: none; transition: color .2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  section { min-height: 100vh; padding: 8rem 2.5rem 5rem; max-width: 1100px; margin: 0 auto; }
+  section.full { max-width: none; padding-left: 0; padding-right: 0; }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh; background: var(--ink);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding: 0;
+  }
+  .cover-stars { position: absolute; inset: 0; }
+  .cover-star { position: absolute; background: #fff; border-radius: 50%; animation: twinkle 3s infinite alternate; }
+  @keyframes twinkle { from { opacity: .2; } to { opacity: .8; } }
+
+  .cover-orb {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #fff, #c4b5fd 22%, #8b5cf6 60%, #5b21b6);
+    box-shadow: 0 0 80px rgba(139,92,246,.7), 0 0 160px rgba(139,92,246,.3);
+    margin-bottom: 2.5rem;
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+
+  .cover-title {
+    font-family: 'DM Mono', monospace; font-weight: 500;
+    letter-spacing: .22em; font-size: 3.2rem; color: #c4b5fd;
+    text-align: center; margin-bottom: .5rem;
+  }
+  .cover-sub {
+    font-family: 'DM Mono', monospace; font-size: .65rem;
+    letter-spacing: .16em; color: rgba(196,181,253,.4);
+    text-align: center; margin-bottom: 1rem;
+  }
+  .cover-divider { width: 120px; height: 1px; background: rgba(139,92,246,.3); margin: 1.5rem auto; }
+  .cover-tagline {
+    font-family: 'Playfair Display', serif; font-style: italic;
+    font-size: 1.35rem; color: rgba(255,255,255,.7); text-align: center;
+  }
+  .cover-version {
+    position: absolute; bottom: 2rem;
+    font-family: 'DM Mono', monospace; font-size: .52rem;
+    letter-spacing: .1em; color: rgba(139,92,246,.4);
+  }
+
+  /* ── CHAPTER HEADERS ── */
+  .chapter-num {
+    font-family: 'DM Mono', monospace; font-size: .55rem;
+    letter-spacing: .2em; color: var(--accent); margin-bottom: .5rem;
+    display: flex; align-items: center; gap: .75rem;
+  }
+  .chapter-num::after { content: ''; flex: 1; height: 1px; background: rgba(139,92,246,.2); }
+  .chapter-title {
+    font-family: 'Playfair Display', serif; font-size: 3.2rem; font-weight: 700;
+    line-height: 1.1; margin-bottom: .5rem; color: var(--ink);
+  }
+  .chapter-title em { font-style: italic; color: var(--accent); }
+  .chapter-sub { font-size: .95rem; color: var(--dim); max-width: 520px; margin-bottom: 3.5rem; line-height: 1.7; }
+
+  /* ── MANIFESTO ── */
+  .manifesto-block {
+    background: var(--ink); color: #fff; padding: 5rem 2.5rem;
+    max-width: none; margin: 0;
+  }
+  .manifesto-inner { max-width: 780px; margin: 0 auto; }
+  .manifesto-kicker { font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .2em; color: var(--accent2); margin-bottom: 2rem; }
+  .manifesto-body p {
+    font-family: 'Playfair Display', serif; font-size: 1.5rem;
+    line-height: 1.75; margin-bottom: 1.5rem; color: rgba(255,255,255,.88);
+  }
+  .manifesto-body p strong { color: #c4b5fd; font-weight: 700; }
+  .manifesto-hash {
+    font-family: 'DM Mono', monospace; font-size: .65rem;
+    letter-spacing: .14em; color: var(--accent); margin-top: 3rem;
+  }
+
+  /* ── GRID LAYOUTS ── */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+  .three-col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+  /* ── CARDS ── */
+  .card {
+    background: #fff; border: 1px solid rgba(139,92,246,.12);
+    border-radius: 16px; padding: 2rem; transition: all .2s;
+  }
+  .card:hover { border-color: rgba(139,92,246,.4); box-shadow: 0 8px 32px rgba(139,92,246,.08); }
+  .card-label { font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .14em; color: var(--accent); margin-bottom: .75rem; text-transform: uppercase; }
+  .card-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: .5rem; }
+  .card-body { font-size: .9rem; color: var(--dim); line-height: 1.65; }
+
+  /* ── COLORS ── */
+  .color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1.25rem; }
+  .color-swatch { border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.08); }
+  .color-block { height: 100px; }
+  .color-info { background: #fff; padding: .75rem 1rem; }
+  .color-name { font-family: 'DM Mono', monospace; font-size: .58rem; font-weight: 500; letter-spacing: .08em; }
+  .color-hex { font-family: 'DM Mono', monospace; font-size: .5rem; color: var(--dim); margin-top: .18rem; }
+
+  /* ── TYPOGRAPHY SPECIMENS ── */
+  .type-specimen { border-bottom: 1px solid rgba(139,92,246,.1); padding-bottom: 2.5rem; margin-bottom: 2.5rem; }
+  .type-meta { font-family: 'DM Mono', monospace; font-size: .5rem; letter-spacing: .12em; color: var(--accent); margin-bottom: 1rem; text-transform: uppercase; }
+  .type-display { line-height: 1.1; margin-bottom: .5rem; }
+  .type-weights { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; }
+  .type-weight-item { font-size: .85rem; color: var(--dim); }
+  .type-weight-item span { font-family: 'DM Mono', monospace; font-size: .48rem; display: block; letter-spacing: .1em; color: var(--accent); margin-bottom: .25rem; }
+
+  /* ── LOGO ── */
+  .logo-variants { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+  .logo-box {
+    border-radius: 14px; padding: 2.5rem 2rem;
+    display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  }
+  .logo-box.dark { background: var(--ink); }
+  .logo-box.light { background: #f5f2ee; border: 1px solid rgba(139,92,246,.12); }
+  .logo-box.accent { background: var(--accent); }
+  .logo-wordmark { font-family: 'DM Mono', monospace; font-weight: 500; letter-spacing: .22em; }
+  .logo-caption { font-family: 'DM Mono', monospace; font-size: .48rem; letter-spacing: .1em; color: var(--dim); text-align: center; margin-top: .5rem; }
+
+  /* ── ORB DEMO ── */
+  .orb-demo { display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
+  .orb { border-radius: 50%; flex-shrink: 0; }
+  .orb-lg { width: 120px; height: 120px; background: radial-gradient(circle at 35% 30%, #fff, #c4b5fd 22%, #8b5cf6 60%, #5b21b6); box-shadow: 0 0 60px rgba(139,92,246,.6); }
+  .orb-md { width: 80px; height: 80px; background: radial-gradient(circle at 35% 30%, #fff, #c4b5fd 22%, #8b5cf6 60%, #5b21b6); box-shadow: 0 0 40px rgba(139,92,246,.5); }
+  .orb-sm { width: 48px; height: 48px; background: radial-gradient(circle at 35% 30%, #fff, #c4b5fd 22%, #8b5cf6 60%, #5b21b6); box-shadow: 0 0 24px rgba(139,92,246,.5); }
+  .orb-green { background: radial-gradient(circle at 35% 30%, #fff, #6ee7b7 22%, #10b981 60%, #065f46); box-shadow: 0 0 40px rgba(16,185,129,.5); }
+  .orb-blue { background: radial-gradient(circle at 35% 30%, #fff, #93c5fd 22%, #3b82f6 60%, #1e3a8a); box-shadow: 0 0 40px rgba(59,130,246,.5); }
+  .orb-gold { background: radial-gradient(circle at 35% 30%, #fff, #fde68a 22%, #f59e0b 60%, #78350f); box-shadow: 0 0 40px rgba(245,158,11,.5); }
+
+  /* ── VOICE / TONE ── */
+  .tone-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid rgba(139,92,246,.12); border-radius: 12px; overflow: hidden; margin-bottom: 1rem; }
+  .tone-do { background: rgba(110,231,183,.06); padding: 1.25rem 1.5rem; }
+  .tone-dont { background: rgba(248,113,113,.06); padding: 1.25rem 1.5rem; }
+  .tone-label { font-family: 'DM Mono', monospace; font-size: .48rem; letter-spacing: .12em; margin-bottom: .5rem; }
+  .tone-do .tone-label { color: #10b981; }
+  .tone-dont .tone-label { color: #ef4444; }
+  .tone-text { font-size: .88rem; line-height: 1.6; color: var(--ink); }
+
+  /* ── FEATURES ── */
+  .feature-list { display: flex; flex-direction: column; gap: .75rem; }
+  .feature-item {
+    display: flex; align-items: flex-start; gap: 1rem;
+    padding: 1rem 1.25rem; background: #fff;
+    border: 1px solid rgba(139,92,246,.1); border-radius: 10px;
+  }
+  .feature-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: .1rem; }
+  .feature-name { font-family: 'DM Mono', monospace; font-size: .6rem; letter-spacing: .08em; color: var(--accent); margin-bottom: .2rem; text-transform: uppercase; }
+  .feature-desc { font-size: .85rem; color: var(--dim); line-height: 1.55; }
+
+  /* ── FOOTER ── */
+  .bb-footer {
+    background: var(--ink); color: rgba(196,181,253,.5);
+    text-align: center; padding: 4rem 2rem;
+    font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .14em;
+  }
+  .bb-footer-orb { width: 40px; height: 40px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #fff, #c4b5fd 22%, #8b5cf6 60%, #5b21b6); box-shadow: 0 0 24px rgba(139,92,246,.5); margin: 0 auto 1.5rem; }
+  .bb-footer-title { color: #c4b5fd; font-size: .75rem; letter-spacing: .2em; margin-bottom: .5rem; }
+
+  /* ── DIVIDER ── */
+  .section-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(139,92,246,.3), transparent); margin: 0; }
+
+  /* ── BRAND MARK RULES ── */
+  .rule-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; }
+  .rule-card { border-radius: 10px; padding: 1.25rem 1.5rem; }
+  .rule-do { background: rgba(110,231,183,.07); border: 1px solid rgba(110,231,183,.25); }
+  .rule-dont { background: rgba(248,113,113,.07); border: 1px solid rgba(248,113,113,.2); }
+  .rule-label { font-family: 'DM Mono', monospace; font-size: .48rem; letter-spacing: .12em; margin-bottom: .6rem; }
+  .rule-do .rule-label { color: #10b981; }
+  .rule-dont .rule-label { color: #ef4444; }
+  .rule-text { font-size: .85rem; line-height: 1.6; color: var(--ink); }
+
+  /* ── SPACING ── */
+  .spacer { height: 2rem; }
+  .spacer-lg { height: 4rem; }
+
+  /* ── PILL ── */
+  .pill { display: inline-flex; align-items: center; gap: .4rem; font-family: 'DM Mono', monospace; font-size: .55rem; letter-spacing: .08em; padding: .3rem .8rem; border-radius: 20px; }
+  .pill-accent { background: rgba(139,92,246,.12); border: 1px solid rgba(139,92,246,.3); color: var(--accent); }
+  .pill-green { background: rgba(110,231,183,.1); border: 1px solid rgba(110,231,183,.3); color: #10b981; }
+  .pill-gold { background: rgba(251,191,36,.1); border: 1px solid rgba(251,191,36,.3); color: #d97706; }
+
+  /* ── HIGHLIGHT BOX ── */
+  .highlight { background: rgba(139,92,246,.06); border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .highlight p { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.05rem; color: var(--ink); line-height: 1.65; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">✦ ALINEA · BRAND BOOK</div>
+  <div class="nav-links">
+    <a href="#manifesto">Manifiesto</a>
+    <a href="#identidad">Identidad</a>
+    <a href="#marca">Marca</a>
+    <a href="#tipografia">Tipografía</a>
+    <a href="#color">Color</a>
+    <a href="#voz">Voz</a>
+    <a href="#producto">Producto</a>
+    <a href="#beta">Beta & Precios</a>
+  </div>
+</nav>
+
+<!-- COVER -->
+<section class="cover full" id="cover">
+  <div class="cover-stars" id="stars"></div>
+  <div class="cover-orb"></div>
+  <div class="cover-title">ALINEA</div>
+  <div class="cover-sub">alinea.io · Brand Book · 2026</div>
+  <div class="cover-divider"></div>
+  <div class="cover-tagline">"Hagamos visible lo invisible."</div>
+  <div class="cover-version">VERSIÓN PRO · #MakingVisibleTheInvisible</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 01 MANIFIESTO -->
+<div class="manifesto-block" id="manifesto">
+  <div class="manifesto-inner">
+    <div class="manifesto-kicker">✦ 01 — MANIFIESTO</div>
+    <div class="manifesto-body">
+      <p>Vivimos en la era de la <strong>información infinita</strong> y la atención fragmentada. Leemos, subrayamos, cerramos el libro — y al día siguiente, el conocimiento se evapora.</p>
+      <p>ALINEA existe para <strong>detener esa fuga</strong>. Para que cada libro que tocas deje una huella real, una red de ideas que crece contigo.</p>
+      <p>No somos un simple lector de notas. Somos el <strong>universo mental del lector</strong>: una galaxia viva donde cada libro es un planeta, cada nota es una estrella, y cada conexión es una constelación que tú construyes.</p>
+      <p>Creemos que el conocimiento más valioso es el que <strong>haces tuyo</strong>. El que subrayas, el que anotas a las 2am, el que conectas con otra idea que leíste hace seis meses.</p>
+      <p>ALINEA <strong>hace visible lo invisible</strong>.</p>
+    </div>
+    <div class="manifesto-hash">✦ #MakingVisibleTheInvisible</div>
+  </div>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- 02 IDENTIDAD -->
+<section id="identidad">
+  <div class="chapter-num">✦ 02 — IDENTIDAD DE MARCA</div>
+  <h2 class="chapter-title">Quiénes <em>somos</em></h2>
+  <p class="chapter-sub">ALINEA es una biblioteca personal inteligente para lectores que toman en serio su crecimiento. No somos una app de resúmenes ni un gestor de PDFs — somos el cosmos mental del lector ambicioso.</p>
+
+  <div class="three-col">
+    <div class="card">
+      <div class="card-label">Misión</div>
+      <div class="card-title">Hacer visible lo invisible</div>
+      <div class="card-body">Convertir cada lectura en conocimiento activo, conexiones reales y crecimiento medible — no en notas olvidadas.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Visión</div>
+      <div class="card-title">El universo mental del lector</div>
+      <div class="card-body">Ser la plataforma donde los lectores más ambiciosos del mundo construyen, visualizan y comparten su inteligencia acumulada.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Propósito</div>
+      <div class="card-title">Un libro a la vez</div>
+      <div class="card-body">Cada libro es un planeta. Cada nota es una estrella. Cada conexión, una constelación. ALINEA es la galaxia que los une.</div>
+    </div>
+  </div>
+
+  <div class="spacer-lg"></div>
+
+  <div class="two-col">
+    <div>
+      <div class="chapter-num" style="font-size:.5rem">PERSONALIDAD DE MARCA</div>
+      <div class="spacer"></div>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-icon">🌌</div>
+          <div>
+            <div class="feature-name">Espacial & Premium</div>
+            <div class="feature-desc">Dark mode por defecto. Estética cosmos. Cada detalle comunica que esto no es una app cualquiera.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🧠</div>
+          <div>
+            <div class="feature-name">Inteligente & Sutil</div>
+            <div class="feature-desc">La IA trabaja en silencio. Las conexiones aparecen naturalmente. La tecnología es invisible.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">✦</div>
+          <div>
+            <div class="feature-name">Poético & Preciso</div>
+            <div class="feature-desc">Playfair itálica para los momentos de belleza. DM Mono para los datos. Nunca mezclados sin intención.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">🔒</div>
+          <div>
+            <div class="feature-name">Privado & Tuyo</div>
+            <div class="feature-desc">100% local. Sin cuentas. Sin anuncios. Tu galaxia es solo tuya.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="chapter-num" style="font-size:.5rem">ARQUETIPO</div>
+      <div class="spacer"></div>
+      <div class="highlight"><p>"ALINEA es el sabio que nunca olvidó nada — y te ayuda a serlo tú también."</p></div>
+      <div class="spacer"></div>
+      <p style="color:var(--dim);font-size:.9rem;line-height:1.7">Nuestro arquetipo de marca es el <strong>Sabio + el Creador</strong>. Buscamos la verdad en los libros, pero la hacemos visible con diseño y tecnología. El lector de ALINEA no solo consume — construye, conecta y comparte.</p>
+      <div class="spacer"></div>
+      <div style="display:flex;gap:.5rem;flex-wrap:wrap">
+        <span class="pill pill-accent">✦ Ambicioso</span>
+        <span class="pill pill-accent">✦ Introspectivo</span>
+        <span class="pill pill-accent">✦ Premium</span>
+        <span class="pill pill-green">✦ Local-first</span>
+        <span class="pill pill-green">✦ Sin anuncios</span>
+        <span class="pill pill-gold">✦ Lector serio</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 03 MARCA VISUAL -->
+<section id="marca">
+  <div class="chapter-num">✦ 03 — SISTEMA DE MARCA</div>
+  <h2 class="chapter-title">El <em>Orb</em> & el Wordmark</h2>
+  <p class="chapter-sub">La identidad visual de ALINEA descansa en dos elementos inseparables: el Orb y el Wordmark. Juntos construyen el sello de marca en todos los contextos.</p>
+
+  <!-- ORB -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.5rem">EL ORB</div>
+  <div class="orb-demo" style="margin-bottom:3rem">
+    <div>
+      <div class="orb orb-lg"></div>
+      <div class="logo-caption" style="margin-top:.75rem">Grande<br>Hero / Exportables</div>
+    </div>
+    <div>
+      <div class="orb orb-md"></div>
+      <div class="logo-caption" style="margin-top:.75rem">Medio<br>Onboarding / Modales</div>
+    </div>
+    <div>
+      <div class="orb orb-sm"></div>
+      <div class="logo-caption" style="margin-top:.75rem">Pequeño<br>UI / Footer</div>
+    </div>
+    <div>
+      <div class="orb orb-md orb-green"></div>
+      <div class="logo-caption" style="margin-top:.75rem">Verde<br>Tema activo</div>
+    </div>
+    <div>
+      <div class="orb orb-md orb-blue"></div>
+      <div class="logo-caption" style="margin-top:.75rem">Azul<br>Tema activo</div>
+    </div>
+    <div>
+      <div class="orb orb-md orb-gold"></div>
+      <div class="logo-caption" style="margin-top:.75rem">Dorado<br>Tema activo</div>
+    </div>
+  </div>
+
+  <div class="highlight"><p>El Orb siempre usa gradiente radial con especular en el cuadrante superior izquierdo. Nunca plano. Siempre con glow del color de acento activo.</p></div>
+
+  <div class="spacer-lg"></div>
+
+  <!-- WORDMARK -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.5rem">WORDMARK</div>
+  <div class="logo-variants">
+    <div class="logo-box dark">
+      <div class="orb orb-sm"></div>
+      <div class="logo-wordmark" style="font-size:1.8rem;color:#c4b5fd;letter-spacing:.22em">ALINEA</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:rgba(196,181,253,.45)">@alinea.io</div>
+      <div class="logo-caption" style="color:rgba(196,181,253,.35)">#MakingVisibleTheInvisible</div>
+      <div class="logo-caption">Sobre oscuro — uso principal</div>
+    </div>
+    <div class="logo-box light">
+      <div class="orb orb-sm" style="box-shadow:0 0 24px rgba(139,92,246,.4)"></div>
+      <div class="logo-wordmark" style="font-size:1.8rem;color:#8b5cf6;letter-spacing:.22em">ALINEA</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:rgba(139,92,246,.5)">@alinea.io</div>
+      <div class="logo-caption">Sobre claro — uso secundario</div>
+    </div>
+    <div class="logo-box accent">
+      <div class="orb orb-sm" style="background:radial-gradient(circle at 35% 30%,#fff,rgba(255,255,255,.6) 22%,rgba(255,255,255,.2) 60%,transparent);box-shadow:0 0 24px rgba(255,255,255,.3)"></div>
+      <div class="logo-wordmark" style="font-size:1.8rem;color:#fff;letter-spacing:.22em">ALINEA</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.1em;color:rgba(255,255,255,.6)">@alinea.io</div>
+      <div class="logo-caption" style="color:rgba(255,255,255,.5)">Sobre acento — uso especial</div>
+    </div>
+  </div>
+
+  <div class="spacer-lg"></div>
+
+  <!-- REGLAS DE USO -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.5rem">REGLAS DE USO</div>
+  <div class="rule-grid">
+    <div class="rule-card rule-do">
+      <div class="rule-label">✓ SÍ</div>
+      <div class="rule-text">Usar ALINEA en mayúsculas con DM Mono siempre</div>
+    </div>
+    <div class="rule-card rule-dont">
+      <div class="rule-label">✗ NO</div>
+      <div class="rule-text">Escribir "Alinea" o "alinea" en minúsculas en contextos de marca</div>
+    </div>
+    <div class="rule-card rule-do">
+      <div class="rule-label">✓ SÍ</div>
+      <div class="rule-text">El Orb siempre acompañado del Wordmark en comunicaciones externas</div>
+    </div>
+    <div class="rule-card rule-dont">
+      <div class="rule-label">✗ NO</div>
+      <div class="rule-text">Usar el Orb aislado sin el wordmark ALINEA en materiales de marca</div>
+    </div>
+    <div class="rule-card rule-do">
+      <div class="rule-label">✓ SÍ</div>
+      <div class="rule-text">Firma completa en exportables: Orb → ALINEA → @alinea.io → #MakingVisibleTheInvisible</div>
+    </div>
+    <div class="rule-card rule-dont">
+      <div class="rule-label">✗ NO</div>
+      <div class="rule-text">Cambiar el orden de los elementos del footer de marca en exportables (el hashtag siempre va al final)</div>
+    </div>
+    <div class="rule-card rule-do">
+      <div class="rule-label">✓ SÍ</div>
+      <div class="rule-text">El color del Orb y el wordmark siguen siempre el tema de color activo del usuario</div>
+    </div>
+    <div class="rule-card rule-dont">
+      <div class="rule-label">✗ NO</div>
+      <div class="rule-text">Forzar un color fijo en los exportables ignorando el tema del usuario</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 04 TIPOGRAFÍA -->
+<section id="tipografia">
+  <div class="chapter-num">✦ 04 — TIPOGRAFÍA</div>
+  <h2 class="chapter-title">El sistema <em>tipográfico</em></h2>
+  <p class="chapter-sub">Tres familias con roles estrictos. Nunca intercambiables. Cada una comunica un estado emocional diferente dentro de la app.</p>
+
+  <!-- Playfair -->
+  <div class="type-specimen">
+    <div class="type-meta">01 — PLAYFAIR DISPLAY · Google Fonts · Serif</div>
+    <div class="type-display" style="font-family:'Playfair Display',serif;font-size:3.5rem;font-weight:700;line-height:1.05">Bitácora <em style="color:var(--accent)">de vuelo</em></div>
+    <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:1.4rem;color:var(--dim);margin-top:.75rem">"Hagamos visible lo invisible."</div>
+    <div class="type-weights" style="margin-top:1.25rem">
+      <div class="type-weight-item"><span>700 NORMAL</span><span style="font-family:'Playfair Display',serif;font-weight:700">Títulos hero</span></div>
+      <div class="type-weight-item"><span>700 ITALIC</span><span style="font-family:'Playfair Display',serif;font-weight:700;font-style:italic;color:var(--accent)">Énfasis &amp; citas</span></div>
+      <div class="type-weight-item"><span>400 ITALIC</span><span style="font-family:'Playfair Display',serif;font-style:italic;color:var(--dim)">Textos largos</span></div>
+    </div>
+    <div class="spacer"></div>
+    <div style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:var(--dim)">USO: Títulos de sección · Títulos de modales Bitácora · Citas en canvas · Números de métricas · Textos de onboarding</div>
+  </div>
+
+  <!-- DM Mono -->
+  <div class="type-specimen">
+    <div class="type-meta">02 — DM MONO · Google Fonts · Monospace</div>
+    <div class="type-display" style="font-family:'DM Mono',monospace;font-weight:500;font-size:2.8rem;letter-spacing:.12em;color:var(--accent)">ALINEA</div>
+    <div style="font-family:'DM Mono',monospace;font-size:1rem;color:var(--dim);margin-top:.5rem;letter-spacing:.08em">@alinea.io · #MakingVisibleTheInvisible</div>
+    <div class="type-weights" style="margin-top:1.25rem">
+      <div class="type-weight-item"><span>500 NORMAL</span><span style="font-family:'DM Mono',monospace;font-weight:500;letter-spacing:.18em">WORDMARK</span></div>
+      <div class="type-weight-item"><span>400 NORMAL</span><span style="font-family:'DM Mono',monospace">UI labels · handles</span></div>
+      <div class="type-weight-item"><span>300 NORMAL</span><span style="font-family:'DM Mono',monospace;font-weight:300;color:var(--dim)">Textos sutiles</span></div>
+    </div>
+    <div class="spacer"></div>
+    <div style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:var(--dim)">USO: Wordmark ALINEA · Labels de UI · Handles (@alinea.io) · Hashtags · Botones · Contadores · Firma de marca en exportables</div>
+  </div>
+
+  <!-- Lato -->
+  <div class="type-specimen" style="border-bottom:none;padding-bottom:0">
+    <div class="type-meta">03 — LATO · Google Fonts · Sans-serif</div>
+    <div class="type-display" style="font-family:'Lato',sans-serif;font-style:italic;font-size:1.6rem;color:var(--dim)">"Quien primero toma posición en el campo de batalla y espera al enemigo se siente más cómodo."</div>
+    <div class="type-weights" style="margin-top:1.25rem">
+      <div class="type-weight-item"><span>700 NORMAL</span><span style="font-family:'Lato',sans-serif;font-weight:700">Números de métricas</span></div>
+      <div class="type-weight-item"><span>400 ITALIC</span><span style="font-family:'Lato',sans-serif;font-style:italic;color:var(--dim)">Notas y citas</span></div>
+      <div class="type-weight-item"><span>600 NORMAL</span><span style="font-family:'Lato',sans-serif;font-weight:600">Contadores</span></div>
+    </div>
+    <div class="spacer"></div>
+    <div style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.1em;color:var(--dim)">USO: Notas y subrayados en el modal del libro · Citas en el Explorador · Resultados de búsqueda · Números grandes en Conocimiento · Contadores de selección</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 05 COLOR -->
+<section id="color">
+  <div class="chapter-num">✦ 05 — SISTEMA DE COLOR</div>
+  <h2 class="chapter-title">La <em>paleta</em> del cosmos</h2>
+  <p class="chapter-sub">El sistema de color de ALINEA es dinámico: el usuario elige su tema de acento y toda la app — incluyendo todos los exportables — se adapta. Existen 6 temas predefinidos y un selector de color personalizado ilimitado.</p>
+
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.25rem">COLORES BASE — INVARIABLES</div>
+  <div class="color-grid" style="margin-bottom:3rem">
+    <div class="color-swatch">
+      <div class="color-block" style="background:#06050f"></div>
+      <div class="color-info"><div class="color-name">Space Black</div><div class="color-hex">#06050f · Fondo principal</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:#0c0a18"></div>
+      <div class="color-info"><div class="color-name">Deep Space</div><div class="color-hex">#0c0a18 · Fondo secundario</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:#f5f2ee"></div>
+      <div class="color-info"><div class="color-name">Parchment</div><div class="color-hex">#f5f2ee · Brand Book / Documentos</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:#f0eeff"></div>
+      <div class="color-info"><div class="color-name">Star White</div><div class="color-hex">#f0eeff · Texto principal en dark</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:#6ee7b7"></div>
+      <div class="color-info"><div class="color-name">Cosmos Green</div><div class="color-hex">#6ee7b7 · Éxito / Terminados</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:#fbbf24"></div>
+      <div class="color-info"><div class="color-name">Star Gold</div><div class="color-hex">#fbbf24 · Rating / Wishlist</div></div>
+    </div>
+  </div>
+
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.25rem">TEMAS DE ACENTO — DINÁMICOS</div>
+  <div class="color-grid">
+    <div class="color-swatch">
+      <div class="color-block" style="background:linear-gradient(135deg,#8b5cf6,#c4b5fd)"></div>
+      <div class="color-info"><div class="color-name">Nebula Purple</div><div class="color-hex">#8b5cf6 · Tema por defecto</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:linear-gradient(135deg,#3b82f6,#93c5fd)"></div>
+      <div class="color-info"><div class="color-name">Pulsar Blue</div><div class="color-hex">#3b82f6</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:linear-gradient(135deg,#10b981,#6ee7b7)"></div>
+      <div class="color-info"><div class="color-name">Aurora Green</div><div class="color-hex">#10b981</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:linear-gradient(135deg,#ec4899,#f9a8d4)"></div>
+      <div class="color-info"><div class="color-name">Pink Dwarf</div><div class="color-hex">#ec4899</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:linear-gradient(135deg,#f97316,#fdba74)"></div>
+      <div class="color-info"><div class="color-name">Solar Orange</div><div class="color-hex">#f97316</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:linear-gradient(135deg,#f59e0b,#fde68a)"></div>
+      <div class="color-info"><div class="color-name">Solar Yellow</div><div class="color-hex">#f59e0b</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:linear-gradient(135deg,#ef4444,#fca5a5)"></div>
+      <div class="color-info"><div class="color-name">Red Giant</div><div class="color-hex">#ef4444</div></div>
+    </div>
+    <div class="color-swatch">
+      <div class="color-block" style="background:conic-gradient(#f87171,#fbbf24,#4ade80,#60a5fa,#a78bfa,#f472b6,#f87171)"></div>
+      <div class="color-info"><div class="color-name">Custom</div><div class="color-hex">Paleta nativa del sistema</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 06 VOZ & TONO -->
+<section id="voz">
+  <div class="chapter-num">✦ 06 — VOZ & TONO</div>
+  <h2 class="chapter-title">Cómo <em>hablamos</em></h2>
+  <p class="chapter-sub">ALINEA habla como un lector que respeta al lector. Directo, poético cuando corresponde, nunca condescendiente. La tecnología es invisible — la experiencia es humana.</p>
+
+  <div class="two-col" style="margin-bottom:2.5rem">
+    <div>
+      <div class="chapter-num" style="font-size:.5rem;margin-bottom:1rem">ATRIBUTOS DE VOZ</div>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-icon">✦</div><div><div class="feature-name">Poético y preciso</div><div class="feature-desc">"Hagamos visible lo invisible." No "Tu app para organizar libros."</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🌌</div><div><div class="feature-name">Espacial y evocador</div><div class="feature-desc">Galaxia, cosmos, planetas, constelaciones — la metáfora espacial es constante pero nunca forzada.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🎯</div><div><div class="feature-name">Directo y sin relleno</div><div class="feature-desc">Cero buzzwords. Cero "innovador" ni "disruptivo". Solo verdad.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">📖</div><div><div class="feature-name">Del lector para el lector</div><div class="feature-desc">Hablamos como alguien que también lee, también subraya, también olvida — y encontró la solución.</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="chapter-num" style="font-size:.5rem;margin-bottom:1rem">FRASES DE MARCA</div>
+      <div style="display:flex;flex-direction:column;gap:.75rem">
+        <div class="highlight"><p>"Hagamos visible lo invisible."</p></div>
+        <div class="highlight"><p>"Un libro a la vez, un universo entero."</p></div>
+        <div class="highlight"><p>"Tu biblioteca es tu mente en papel."</p></div>
+        <div class="highlight"><p>"Ajusta, personaliza y controla tu universo."</p></div>
+        <div class="highlight"><p>"Volviendo lo invisible visible."</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.25rem">SÍ / NO EN COMUNICACIÓN</div>
+  <div class="tone-pair">
+    <div class="tone-do"><div class="tone-label">✓ SÍ DECIR</div><div class="tone-text">"Tu galaxia de conocimiento te espera."</div></div>
+    <div class="tone-dont"><div class="tone-label">✗ NO DECIR</div><div class="tone-text">"Organiza tus libros de manera eficiente."</div></div>
+  </div>
+  <div class="tone-pair">
+    <div class="tone-do"><div class="tone-label">✓ SÍ DECIR</div><div class="tone-text">"Cada nota es una estrella en tu cosmos."</div></div>
+    <div class="tone-dont"><div class="tone-label">✗ NO DECIR</div><div class="tone-text">"Guarda tus notas en la base de datos."</div></div>
+  </div>
+  <div class="tone-pair">
+    <div class="tone-do"><div class="tone-label">✓ SÍ DECIR</div><div class="tone-text">"#MakingVisibleTheInvisible"</div></div>
+    <div class="tone-dont"><div class="tone-label">✗ NO DECIR</div><div class="tone-text">"#ProductividadLectora #GestorDeLibros"</div></div>
+  </div>
+  <div class="tone-pair">
+    <div class="tone-do"><div class="tone-label">✓ SÍ DECIR</div><div class="tone-text">"Tu universo, sin anuncios, sin cuentas, completamente tuyo."</div></div>
+    <div class="tone-dont"><div class="tone-label">✗ NO DECIR</div><div class="tone-text">"Privacidad garantizada por nuestra política de datos."</div></div>
+  </div>
+
+  <div class="spacer-lg"></div>
+
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.25rem">HASHTAG OFICIAL</div>
+  <div style="font-family:'DM Mono',monospace;font-size:2rem;font-weight:500;letter-spacing:.08em;color:var(--accent)">#MakingVisibleTheInvisible</div>
+  <div style="font-family:'DM Mono',monospace;font-size:.55rem;color:var(--dim);margin-top:.5rem;letter-spacing:.08em">Aparece en todos los exportables. Es el cierre de marca obligatorio en redes sociales.</div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 07 PRODUCTO -->
+<section id="producto">
+  <div class="chapter-num">✦ 07 — PRODUCTO</div>
+  <h2 class="chapter-title">ALINEA <em>PRO</em> — Feature Map</h2>
+  <p class="chapter-sub">Todo lo que existe en la versión Pro. El producto completo, sin omisiones.</p>
+
+  <div class="three-col">
+    <div>
+      <div class="chapter-num" style="font-size:.5rem;margin-bottom:1rem">📚 BIBLIOTECA</div>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-icon">🔍</div><div><div class="feature-name">Autocompletado de portada</div><div class="feature-desc">Open Library + Google Books al escribir el título.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🖼</div><div><div class="feature-name">URL manual con guía</div><div class="feature-desc">Instrucciones por dispositivo (PC / iPhone / Android) con validación de extensión.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">⭐</div><div><div class="feature-name">Rating & Status</div><div class="feature-desc">Estrellas y estado editable en tiempo real sin abrir el editor.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🗂</div><div><div class="feature-name">Categorías jerárquicas</div><div class="feature-desc">Taxonomía completa con subcategorías y categorías personalizadas.</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="chapter-num" style="font-size:.5rem;margin-bottom:1rem">📝 NOTAS & IA</div>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-icon">🎤</div><div><div class="feature-name">Dictado por voz</div><div class="feature-desc">Con feedback visual: glow, escala 108%, botón guardar activo automáticamente.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🤖</div><div><div class="feature-name">Keywords & Mood IA</div><div class="feature-desc">Compatible con Claude (Anthropic), Gemini, OpenAI, Grok y endpoint custom. Extrae keywords y mood de cada nota automáticamente.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🔗</div><div><div class="feature-name">Conexiones automáticas</div><div class="feature-desc">Libros relacionados por keywords compartidos detectados por IA.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">📷</div><div><div class="feature-name">Visión IA (Cámara)</div><div class="feature-desc">Captura texto de libros físicos con la cámara.</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="chapter-num" style="font-size:.5rem;margin-bottom:1rem">🌠 GALAXIA & EXPLORADOR</div>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-icon">🪐</div><div><div class="feature-name">Galaxia interactiva</div><div class="feature-desc">Física simulada, drag & drop, tilt con giroscopio, categorías como planetas.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">💡</div><div><div class="feature-name">Explorador de ideas</div><div class="feature-desc">Keywords flotantes tipo nevera magnética. Búsqueda semántica en notas.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">⚡</div><div><div class="feature-name">Colisión de ideas</div><div class="feature-desc">Compara dos libros por keywords y citas compartidas.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🧬</div><div><div class="feature-name">Síntesis IA completa</div><div class="feature-desc">Análisis de toda la biblioteca con Claude.</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="spacer-lg"></div>
+
+  <div class="three-col">
+    <div>
+      <div class="chapter-num" style="font-size:.5rem;margin-bottom:1rem">📓 BITÁCORA</div>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-icon">📊</div><div><div class="feature-name">Métricas de lectura</div><div class="feature-desc">Volumen, Terminados, Leyendo, Rating prom., Notas, Keywords únicos, Top 5.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🔀</div><div><div class="feature-name">Conexiones paginadas</div><div class="feature-desc">Lista de conexiones entre libros con navegación Anterior/Siguiente.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🌌</div><div><div class="feature-name">Story de Conocimiento</div><div class="feature-desc">Keywords flotando en imagen 1080×1920px para redes sociales.</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="chapter-num" style="font-size:.5rem;margin-bottom:1rem">🎨 EXPORTABLES</div>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-icon">📸</div><div><div class="feature-name">Story del libro</div><div class="feature-desc">1080×1920px. Orb + portada + firma. Descarga o share nativo iOS/Android.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">💬</div><div><div class="feature-name">Story de cita</div><div class="feature-desc">Fondo espacial + texto izquierda + firma ALINEA.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🔖</div><div><div class="feature-name">Welcome Kit PNG</div><div class="feature-desc">2 separadores bookmark + panel instrucciones. Color dinámico.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">📄</div><div><div class="feature-name">PDF de respaldo</div><div class="feature-desc">A4 con fondo espacial, orb real, todos los libros y notas.</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="chapter-num" style="font-size:.5rem;margin-bottom:1rem">⚙️ SISTEMA</div>
+      <div class="feature-list">
+        <div class="feature-item"><div class="feature-icon">👆</div><div><div class="feature-name">Swipe navigation</div><div class="feature-desc">Gestos laterales entre secciones. Zona muerta 22px en bordes del teléfono.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">📳</div><div><div class="feature-name">Haptic feedback</div><div class="feature-desc">4 patrones de vibración para navegación, creación, eliminación y configuración.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🔒</div><div><div class="feature-name">100% local · Sin cuenta</div><div class="feature-desc">localStorage. Sin servidores. Sin anuncios. Export/Import JSON.</div></div></div>
+        <div class="feature-item"><div class="feature-icon">🌐</div><div><div class="feature-name">ES / EN / PT / FR / JA · PWA</div><div class="feature-desc">Español, Inglés, Portugués, Francés y Japonés. Instalable como app nativa en iOS y Android.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- 08 FIRMA DE MARCA -->
+<section>
+  <div class="chapter-num">✦ 08 — FIRMA DE MARCA EN EXPORTABLES</div>
+  <h2 class="chapter-title">El <em>sello</em> de cada imagen</h2>
+  <p class="chapter-sub">Todo lo que sale de ALINEA lleva la firma de marca en el footer. El orden es estricto e inamovible. Es el sello que convierte cada imagen compartida en tráfico orgánico hacia alinea.io.</p>
+
+  <div style="background:var(--ink);border-radius:20px;padding:3rem 2rem;text-align:center;max-width:400px;margin:0 auto 3rem">
+    <div class="orb" style="width:56px;height:56px;background:radial-gradient(circle at 35% 30%,#fff,#c4b5fd 22%,#8b5cf6 60%,#5b21b6);box-shadow:0 0 30px rgba(139,92,246,.6);margin:0 auto 1.2rem"></div>
+    <div style="font-family:'DM Mono',monospace;font-weight:600;font-size:1.1rem;letter-spacing:.16em;color:#c4b5fd;margin-bottom:.5rem">ALINEA</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.08em;color:rgba(139,92,246,.7);margin-bottom:.4rem">@alinea.io</div>
+    <div style="font-family:'DM Mono',monospace;font-size:.5rem;letter-spacing:.05em;color:rgba(255,255,255,.28)">#MakingVisibleTheInvisible</div>
+    <div style="margin-top:1.5rem;font-family:'DM Mono',monospace;font-size:.42rem;letter-spacing:.08em;color:rgba(139,92,246,.35)">↑ ORDEN OBLIGATORIO: ALINEA → @alinea.io → #hashtag ↑</div>
+  </div>
+
+  <div class="three-col">
+    <div class="card" style="text-align:center">
+      <div class="card-label">Story del libro</div>
+      <div style="font-size:2rem;margin:.75rem 0">📖</div>
+      <div class="card-body">Orb + ALINEA arriba · Portada centrada · Firma abajo</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="card-label">Story de grupo (Bitácora)</div>
+      <div style="font-size:2rem;margin:.75rem 0">🌌</div>
+      <div class="card-body">Cuadrícula inteligente 1–10+ libros · Firma completa</div>
+    </div>
+    <div class="card" style="text-align:center">
+      <div class="card-label">Story de Conocimiento</div>
+      <div style="font-size:2rem;margin:.75rem 0">💡</div>
+      <div class="card-body">Keywords flotantes · Firma sutil · Sin Orb en este caso</div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<div class="section-divider"></div>
+
+<!-- 09 BETA & PRICING -->
+<section id="beta">
+  <div class="chapter-num">✦ 09 — BETA · FEATURE MAP & ESTRATEGIA DE PRECIOS</div>
+  <h2 class="chapter-title">De la <em>Beta</em> al Pro</h2>
+  <p class="chapter-sub">ALINEA Beta es gratuita, permanente y sin fecha de expiración. Su propósito es que el usuario viva la experiencia real — galaxia, notas, exportables — y decida comprar Pro cuando quiera más. La transición es sin fricción: el JSON exportado en Beta se importa directamente en Pro.</p>
+
+  <!-- IDIOMAS -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.25rem">IDIOMAS DISPONIBLES</div>
+  <div class="two-col" style="margin-bottom:3rem">
+    <div class="card">
+      <div class="card-label">Beta & Pro — Activos</div>
+      <div class="card-title">Español · English</div>
+      <div class="card-body">Los dos idiomas oficiales de lanzamiento. Toda la interfaz, onboarding, exportables y modales están completamente traducidos en ambos.</div>
+    </div>
+    <div class="card">
+      <div class="card-label">En el código — A futuro</div>
+      <div class="card-title">Português · Français · 日本語</div>
+      <div class="card-body">El código incluye estas traducciones pero no están activadas en el producto actual. Se documentarán como feature oficial en versiones futuras.</div>
+    </div>
+  </div>
+
+  <!-- FEATURE MAP TABLE -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.25rem">FEATURE MAP — BETA vs PRO</div>
+
+  <div style="overflow-x:auto;margin-bottom:3rem">
+    <table style="width:100%;border-collapse:collapse;font-family:'DM Mono',monospace;font-size:.58rem">
+      <thead>
+        <tr>
+          <th style="text-align:left;padding:.75rem 1rem;border-bottom:2px solid rgba(139,92,246,.25);color:var(--accent);letter-spacing:.1em;font-weight:500">FUNCIÓN</th>
+          <th style="text-align:center;padding:.75rem 1rem;border-bottom:2px solid rgba(139,92,246,.25);color:var(--accent);letter-spacing:.1em;font-weight:500">BETA</th>
+          <th style="text-align:center;padding:.75rem 1rem;border-bottom:2px solid rgba(139,92,246,.25);color:var(--accent);letter-spacing:.1em;font-weight:500">PRO</th>
+          <th style="text-align:left;padding:.75rem 1rem;border-bottom:2px solid rgba(139,92,246,.25);color:var(--accent);letter-spacing:.1em;font-weight:500">NOTA</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- BIBLIOTECA -->
+        <tr><td colspan="4" style="padding:.6rem 1rem;background:rgba(139,92,246,.06);color:var(--accent);letter-spacing:.12em;font-size:.48rem">📚 BIBLIOTECA</td></tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Agregar libros</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981;font-weight:600">3 máx.</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981;font-weight:600">∞</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Al intentar agregar el 4° → modal Pro</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Portada automática</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Open Library + Google Books</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Notas y subrayados</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Sin límite de notas por libro</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Rating & Status</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)"></td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Categorías jerárquicas</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)"></td>
+        </tr>
+
+        <!-- GALAXIA -->
+        <tr><td colspan="4" style="padding:.6rem 1rem;background:rgba(139,92,246,.06);color:var(--accent);letter-spacing:.12em;font-size:.48rem">🌌 GALAXIA & EXPLORADOR</td></tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Canvas cósmico completo</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Con 3 libros ya se forma la galaxia</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Explorador — keywords flotantes</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#f59e0b">Preview</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Beta ve flotar keywords; al explorar → modal Pro</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Conexiones entre libros</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Modal Pro al intentar acceder</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Colisión de ideas</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)"></td>
+        </tr>
+
+        <!-- IA -->
+        <tr><td colspan="4" style="padding:.6rem 1rem;background:rgba(139,92,246,.06);color:var(--accent);letter-spacing:.12em;font-size:.48rem">🤖 INTELIGENCIA ARTIFICIAL</td></tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Keywords & Mood por nota</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Claude / Gemini / OpenAI / Grok / Custom</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Síntesis IA de biblioteca</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Modal Pro al intentar acceder</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Visión IA (cámara)</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)"></td>
+        </tr>
+
+        <!-- EXPORTABLES -->
+        <tr><td colspan="4" style="padding:.6rem 1rem;background:rgba(139,92,246,.06);color:var(--accent);letter-spacing:.12em;font-size:.48rem">📸 EXPORTABLES</td></tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Story del libro (imagen)</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Libre en Beta — publicidad orgánica</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Story de cita (imagen)</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Libre en Beta — publicidad orgánica</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Export / Import JSON</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Beta exporta → Pro importa sin perder nada</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">PDF de respaldo</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)"></td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Welcome Kit PNG</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)"></td>
+        </tr>
+
+        <!-- BITÁCORA -->
+        <tr><td colspan="4" style="padding:.6rem 1rem;background:rgba(139,92,246,.06);color:var(--accent);letter-spacing:.12em;font-size:.48rem">📓 BITÁCORA</td></tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Bitácora avanzada</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Top 5, misiones, síntesis, conexiones paginadas</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Story de Conocimiento</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)"></td>
+        </tr>
+
+        <!-- APARIENCIA -->
+        <tr><td colspan="4" style="padding:.6rem 1rem;background:rgba(139,92,246,.06);color:var(--accent);letter-spacing:.12em;font-size:.48rem">🎨 APARIENCIA</td></tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Temas de color</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#f59e0b">3</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">7 + custom</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Beta: Morado, Azul, Verde · Al tocar otro → modal Pro</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Color custom (hex)</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Modal Pro al tocar el selector custom</td>
+        </tr>
+
+        <!-- SISTEMA -->
+        <tr><td colspan="4" style="padding:.6rem 1rem;background:rgba(139,92,246,.06);color:var(--accent);letter-spacing:.12em;font-size:.48rem">⚙️ SISTEMA</td></tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">Idiomas</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">ES / EN</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">ES / EN</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">PT / FR / JA a futuro</td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">100% local · Sin cuenta</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)"></td>
+        </tr>
+        <tr style="border-bottom:1px solid rgba(139,92,246,.07)">
+          <td style="padding:.65rem 1rem;color:var(--ink)">PWA instalable</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)"></td>
+        </tr>
+        <tr>
+          <td style="padding:.65rem 1rem;color:var(--ink)">Licencia Lemon Squeezy</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#ef4444">—</td>
+          <td style="text-align:center;padding:.65rem 1rem;color:#10b981">✓</td>
+          <td style="padding:.65rem 1rem;color:var(--dim)">Key de activación en onboarding Pro</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- LEYENDA -->
+  <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:3rem">
+    <span class="pill pill-green">✓ Disponible</span>
+    <span class="pill pill-gold">◐ Preview / parcial</span>
+    <span style="display:inline-flex;align-items:center;gap:.4rem;font-family:'DM Mono',monospace;font-size:.55rem;letter-spacing:.08em;padding:.3rem .8rem;border-radius:20px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.25);color:#ef4444">— Solo Pro</span>
+  </div>
+
+  <!-- ONBOARDING BETA vs PRO -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.5rem">ONBOARDING — PANTALLA DE ACTIVACIÓN</div>
+  <div class="two-col" style="margin-bottom:3.5rem">
+    <div>
+      <div class="card" style="border-color:rgba(139,92,246,.3)">
+        <div class="card-label">✦ ALINEA BETA</div>
+        <div class="card-title" style="font-size:1.1rem">Pantalla de bienvenida</div>
+        <div class="card-body" style="margin-top:.75rem">
+          <p style="margin-bottom:.6rem">En lugar de pedir una key de activación, la pantalla muestra:</p>
+          <ul style="padding-left:1.1rem;display:flex;flex-direction:column;gap:.4rem">
+            <li>Máximo <strong>3 libros</strong> para explorar tu galaxia</li>
+            <li>Canvas cósmico, notas y exportables disponibles</li>
+            <li>Link directo a la landing para comprar Pro si el usuario quiere más desde el primer momento</li>
+          </ul>
+          <div style="margin-top:1rem;font-family:'DM Mono',monospace;font-size:.5rem;color:var(--accent);letter-spacing:.08em">→ alinea-io.github.io/alinea-landing/landing.html</div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="card" style="border-color:rgba(251,191,36,.4)">
+        <div class="card-label" style="color:#d97706">✦ ALINEA PRO</div>
+        <div class="card-title" style="font-size:1.1rem">Pantalla de activación</div>
+        <div class="card-body" style="margin-top:.75rem">
+          <p style="margin-bottom:.6rem">El usuario ingresa su key de Lemon Squeezy para desbloquear Pro. Al activar:</p>
+          <ul style="padding-left:1.1rem;display:flex;flex-direction:column;gap:.4rem">
+            <li>Libros ilimitados</li>
+            <li>Todos los temas y color custom</li>
+            <li>Bitácora avanzada, IA, PDF y todas las features Pro</li>
+            <li>JSON importado desde Beta — sin perder ningún dato</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL PRO -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.5rem">MODAL DE CONVERSIÓN — REGLAS</div>
+  <div class="highlight" style="margin-bottom:1.5rem"><p>El modal Pro debe ser <strong>contextual</strong>: menciona exactamente la función que el usuario intentó usar. Nunca un mensaje genérico.</p></div>
+  <div class="three-col" style="margin-bottom:3.5rem">
+    <div class="card">
+      <div class="card-label">Trigger</div>
+      <div class="card-title" style="font-size:1rem">4° libro</div>
+      <div class="card-body">«Con Pro puedes agregar libros ilimitados. Tu galaxia apenas está comenzando.»</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Trigger</div>
+      <div class="card-title" style="font-size:1rem">Tema de color bloqueado</div>
+      <div class="card-body">«Este tema es exclusivo de Pro. Desbloquea los 7 temas + tu color personalizado.»</div>
+    </div>
+    <div class="card">
+      <div class="card-label">Trigger</div>
+      <div class="card-title" style="font-size:1rem">Explorador / IA / Bitácora</div>
+      <div class="card-body">«Esta función es parte de ALINEA Pro. Lleva tu galaxia al siguiente nivel.»</div>
+    </div>
+  </div>
+
+  <!-- PRICING -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.5rem">ESTRATEGIA DE PRECIOS — EARLY BIRD 2026</div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;margin-bottom:2rem">
+    <div style="border-radius:16px;padding:2rem;background:#fff;border:2px solid rgba(16,185,129,.35);position:relative;text-align:center">
+      <div style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.12em;color:#10b981;margin-bottom:.5rem">1ª FASE · JUNIO 1–15</div>
+      <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--ink);line-height:1">$49</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:var(--dim);margin-top:.25rem">USD · pago único</div>
+      <div style="margin-top:1rem;font-family:'DM Mono',monospace;font-size:.52rem;color:#10b981;letter-spacing:.06em">Early Bird máximo</div>
+      <div style="position:absolute;top:-10px;right:1rem;background:#10b981;color:#fff;font-family:'DM Mono',monospace;font-size:.42rem;letter-spacing:.08em;padding:.2rem .6rem;border-radius:20px">MEJOR PRECIO</div>
+    </div>
+    <div style="border-radius:16px;padding:2rem;background:#fff;border:1px solid rgba(245,158,11,.3);text-align:center">
+      <div style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.12em;color:#d97706;margin-bottom:.5rem">2ª FASE · JUNIO 16–30</div>
+      <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--ink);line-height:1">$59</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:var(--dim);margin-top:.25rem">USD · pago único</div>
+      <div style="margin-top:1rem;font-family:'DM Mono',monospace;font-size:.52rem;color:#d97706;letter-spacing:.06em">Early Bird estándar</div>
+    </div>
+    <div style="border-radius:16px;padding:2rem;background:#fff;border:1px solid rgba(139,92,246,.2);text-align:center">
+      <div style="font-family:'DM Mono',monospace;font-size:.48rem;letter-spacing:.12em;color:var(--accent);margin-bottom:.5rem">PRECIO NORMAL · JULIO +</div>
+      <div style="font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--ink);line-height:1">$69</div>
+      <div style="font-family:'DM Mono',monospace;font-size:.5rem;color:var(--dim);margin-top:.25rem">USD · pago único</div>
+      <div style="margin-top:1rem;font-family:'DM Mono',monospace;font-size:.52rem;color:var(--accent);letter-spacing:.06em">Precio definitivo</div>
+    </div>
+  </div>
+
+  <div class="highlight">
+    <p>Todos los precios son de <strong>pago único y de por vida</strong>. Sin suscripciones. Sin renovaciones. Todas las actualizaciones futuras incluidas. Procesado vía <strong>Lemon Squeezy</strong>.</p>
+  </div>
+
+  <div class="spacer-lg"></div>
+
+  <!-- TRANSITION FLOW -->
+  <div class="chapter-num" style="font-size:.5rem;margin-bottom:1.5rem">FLUJO DE TRANSICIÓN BETA → PRO</div>
+  <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.06em">
+    <div style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.25);border-radius:10px;padding:.75rem 1.25rem;color:var(--accent)">1. Usuario descarga Beta</div>
+    <div style="color:var(--dim)">→</div>
+    <div style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.25);border-radius:10px;padding:.75rem 1.25rem;color:var(--accent)">2. Agrega hasta 3 libros</div>
+    <div style="color:var(--dim)">→</div>
+    <div style="background:rgba(139,92,246,.08);border:1px solid rgba(139,92,246,.25);border-radius:10px;padding:.75rem 1.25rem;color:var(--accent)">3. Exporta JSON</div>
+    <div style="color:var(--dim)">→</div>
+    <div style="background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:.75rem 1.25rem;color:#10b981">4. Compra Pro en landing</div>
+    <div style="color:var(--dim)">→</div>
+    <div style="background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:.75rem 1.25rem;color:#10b981">5. Activa con key Lemon Squeezy</div>
+    <div style="color:var(--dim)">→</div>
+    <div style="background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.3);border-radius:10px;padding:.75rem 1.25rem;color:#10b981">6. Importa JSON — galaxia intacta ✦</div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FOOTER -->
+<div class="bb-footer">
+  <div class="bb-footer-orb"></div>
+  <div class="bb-footer-title">A L I N E A</div>
+  <div style="margin-bottom:.5rem">alinea.io · Brand Book 2026 · Versión Pro</div>
+  <div style="margin-bottom:.25rem">#MakingVisibleTheInvisible</div>
+  <div style="opacity:.4">Documento interno · Todos los derechos reservados</div>
+</div>
+
+<script>
+// Generate stars
+const starsEl = document.getElementById('stars');
+for(let i = 0; i < 200; i++){
+  const s = document.createElement('div');
+  s.className = 'cover-star';
+  const size = Math.random() * 2.5 + 0.5;
+  s.style.cssText = `
+    width:${size}px;height:${size}px;
+    left:${Math.random()*100}%;top:${Math.random()*100}%;
+    opacity:${Math.random()*.6+.1};
+    animation-delay:${Math.random()*3}s;
+    animation-duration:${Math.random()*3+2}s;
+  `;
+  starsEl.appendChild(s);
+}
+</script>
+</body>
+</html>
